@@ -1,0 +1,227 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.5.4	//
+!_TAG_REVISION_NAME	MCHPTags	//
+!_TAG_REVISION_VERSION	6.0.1	//
+APP_CMD::55	C:\C32\lib\SDMMC.c	27;"	d	line:27	file:
+ATT_ARC::0x20	C:\C32\include\fileio.h	69;"	d	line:69
+ATT_DIR::0x10	C:\C32\include\fileio.h	68;"	d	line:68
+ATT_HIDE::2	C:\C32\include\fileio.h	65;"	d	line:65
+ATT_LFN::0x0f	C:\C32\include\fileio.h	70;"	d	line:70
+ATT_RO::1	C:\C32\include\fileio.h	64;"	d	line:64
+ATT_SYS::4	C:\C32\include\fileio.h	66;"	d	line:66
+ATT_VOL::8	C:\C32\include\fileio.h	67;"	d	line:67
+B	C:\C32\lib\fileio.c	64;"	v	line:64
+BR_FAT_CPY::0x10	C:\C32\lib\fileio.c	36;"	d	line:36	file:
+BR_FAT_SIZE::0x16	C:\C32\lib\fileio.c	35;"	d	line:35	file:
+BR_MAX_ROOT::0x11	C:\C32\lib\fileio.c	37;"	d	line:37	file:
+BR_RES::0xe	C:\C32\lib\fileio.c	34;"	d	line:34	file:
+BR_SXC::0xd	C:\C32\lib\fileio.c	33;"	d	line:33	file:
+B_SIZE::10	C:\CDROM 1-8-08\C32\15 FileIO\ReadTest.c	15;"	d	line:15	file:
+Bcount	C:\C32\lib\fileio.c	65;"	v	line:65
+D	C:\C32\lib\fileio.c	56;"	v	line:56
+DATA_ACCEPT::0x05	C:\C32\lib\SDMMC.c	32;"	d	line:32	file:
+DATA_START::0xFE	C:\C32\lib\SDMMC.c	31;"	d	line:31	file:
+DBGNOT	C:\C32\lib\fileio.c	11;"	d	line:11	file:
+DIR_ADATE::18	C:\C32\lib\fileio.c	46;"	d	line:46	file:
+DIR_ATTRIB::11	C:\C32\lib\fileio.c	43;"	d	line:43	file:
+DIR_CDATE::16	C:\C32\lib\fileio.c	45;"	d	line:45	file:
+DIR_CLST::26	C:\C32\lib\fileio.c	49;"	d	line:49	file:
+DIR_CTIME::14	C:\C32\lib\fileio.c	44;"	d	line:44	file:
+DIR_DATE::24	C:\C32\lib\fileio.c	48;"	d	line:48	file:
+DIR_DEL::0xE5	C:\C32\lib\fileio.c	51;"	d	line:51	file:
+DIR_EMPTY::0	C:\C32\lib\fileio.c	52;"	d	line:52	file:
+DIR_ESIZE::32	C:\C32\lib\fileio.c	40;"	d	line:40	file:
+DIR_EXT::8	C:\C32\lib\fileio.c	42;"	d	line:42	file:
+DIR_NAME::0	C:\C32\lib\fileio.c	41;"	d	line:41	file:
+DIR_SIZE::28	C:\C32\lib\fileio.c	50;"	d	line:50	file:
+DIR_TIME::22	C:\C32\lib\fileio.c	47;"	d	line:47	file:
+Delayms	C:\C32\lib\Explore.c	47;"	f	line:47	signature:( unsigned t)
+F	C:\C32\lib\fileio.c	62;"	v	line:62
+FAT_EOF::0xffff	C:\C32\lib\fileio.c	29;"	d	line:29	file:
+FAT_MCLST::0xfff8	C:\C32\lib\fileio.c	30;"	d	line:30	file:
+FE_CANNOT_INIT::15	C:\C32\include\fileio.h	27;"	d	line:27
+FE_CANNOT_READ_MBR::16	C:\C32\include\fileio.h	28;"	d	line:28
+FE_DIR_FULL::12	C:\C32\include\fileio.h	24;"	d	line:24
+FE_EOF::10	C:\C32\include\fileio.h	22;"	d	line:22
+FE_FAT_EOF::9	C:\C32\include\fileio.h	21;"	d	line:21
+FE_FILE_NOT_FOUND::7	C:\C32\include\fileio.h	19;"	d	line:19
+FE_FILE_OVERWRITE::14	C:\C32\include\fileio.h	26;"	d	line:26
+FE_FIND_ERROR::19	C:\C32\include\fileio.h	31;"	d	line:31
+FE_IDE_ERROR::1	C:\C32\include\fileio.h	13;"	d	line:13
+FE_INVALID_BR::5	C:\C32\include\fileio.h	17;"	d	line:17
+FE_INVALID_CLUSTER::11	C:\C32\include\fileio.h	23;"	d	line:23
+FE_INVALID_FILE::8	C:\C32\include\fileio.h	20;"	d	line:20
+FE_INVALID_MBR::4	C:\C32\include\fileio.h	16;"	d	line:16
+FE_INVALID_MODE::18	C:\C32\include\fileio.h	30;"	d	line:30
+FE_MALLOC_FAILED::17	C:\C32\include\fileio.h	29;"	d	line:29
+FE_MEDIA_FULL::13	C:\C32\include\fileio.h	25;"	d	line:25
+FE_MEDIA_NOT_MNTD::6	C:\C32\include\fileio.h	18;"	d	line:18
+FE_NOT_PRESENT::2	C:\C32\include\fileio.h	14;"	d	line:14
+FE_PARTITION_TYPE::3	C:\C32\include\fileio.h	15;"	d	line:15
+FError	C:\C32\lib\fileio.c	55;"	v	line:55
+FOUND::2	C:\C32\include\fileio.h	72;"	d	line:72
+FO_FIRST_P::0x1BE	C:\C32\lib\fileio.c	23;"	d	line:23	file:
+FO_FIRST_SECT::0x1C6	C:\C32\lib\fileio.c	25;"	d	line:25	file:
+FO_FIRST_SIZE::0x1CA	C:\C32\lib\fileio.c	26;"	d	line:26	file:
+FO_FIRST_TYPE::0x1C2	C:\C32\lib\fileio.c	24;"	d	line:24	file:
+FO_MBR::0L	C:\C32\lib\fileio.c	22;"	d	line:22	file:
+FO_SIGN::0x1FE	C:\C32\lib\fileio.c	27;"	d	line:27	file:
+F_MAX::2	C:\C32\lib\fileio.c	61;"	d	line:61	file:
+Fcount	C:\C32\lib\fileio.c	65;"	v	line:65
+INIT::1	C:\C32\lib\SDMMC.c	19;"	d	line:19	file:
+I_TIMEOUT::10000	C:\C32\lib\SDMMC.c	35;"	d	line:35	file:
+MEDIA	C:\C32\include\fileio.h	43;"	t	line:43
+MFILE	C:\C32\include\fileio.h	61;"	t	line:61
+NOT_FOUND::1	C:\C32\include\fileio.h	73;"	d	line:73
+PMDATA::PMDIN	C:\C32\lib\LCDlib.c	17;"	d	line:17	file:
+READ_SINGLE::17	C:\C32\lib\SDMMC.c	20;"	d	line:20	file:
+RESET::0	C:\C32\lib\SDMMC.c	18;"	d	line:18	file:
+R_TIMEOUT::25000	C:\C32\lib\SDMMC.c	36;"	d	line:36	file:
+ReadL::(a,f)*(unsignedshort*)(a+f)+\	C:\C32\include\fileio.h	80;"	d	line:80
+ReadOddW::(a,f)(*(a+f)+(*(a+f+1)<<8))	C:\C32\include\fileio.h	85;"	d	line:85
+ReadW::(a,f)*(unsignedshort*)(a+f)	C:\C32\include\fileio.h	79;"	d	line:79
+SDCD::_RF1	C:\C32\lib\SDMMC.c	14;"	d	line:14	file:
+SDCS::_RF0	C:\C32\lib\SDMMC.c	15;"	d	line:15	file:
+SDWP::_RG1	C:\C32\lib\SDMMC.c	13;"	d	line:13	file:
+SEND_APP_OP::41	C:\C32\lib\SDMMC.c	28;"	d	line:28	file:
+SEND_CID::10	C:\C32\lib\SDMMC.c	25;"	d	line:25	file:
+SEND_CSD::9	C:\C32\lib\SDMMC.c	24;"	d	line:24	file:
+SET_BLEN::16	C:\C32\lib\SDMMC.c	26;"	d	line:26	file:
+WRITE_SINGLE::24	C:\C32\lib\SDMMC.c	21;"	d	line:21	file:
+W_TIMEOUT::250000	C:\C32\lib\SDMMC.c	37;"	d	line:37	file:
+_general_exception_handler	C:\C32\lib\Explore.c	34;"	f	line:34	signature:( unsigned c, unsigned s)
+a	C:\C32\lib\fileio.c	1042;"	l	line:1042
+a	C:\C32\lib\fileio.c	293;"	l	line:293
+a	C:\C32\lib\fileio.c	371;"	l	line:371
+b	C:\C32\lib\fileio.c	1044;"	l	line:1044
+b	C:\C32\lib\fileio.c	622;"	l	line:622
+buffer	C:\C32\include\fileio.h	47;"	m	line:47
+buffer	C:\C32\lib\fileio.c	110;"	l	line:110
+c	C:\C32\lib\Explore.c	65;"	l	line:65
+c	C:\C32\lib\Explore.c	83;"	l	line:83
+c	C:\C32\lib\LCDlib.c	67;"	l	line:67
+c	C:\C32\lib\fileio.c	427;"	l	line:427
+c	C:\C32\lib\fileio.c	503;"	l	line:503
+c	C:\C32\lib\fileio.c	545;"	l	line:545
+c	C:\C32\lib\fileio.c	620;"	l	line:620
+c	C:\CDROM 1-8-08\C32\15 FileIO\ReadTest.c	23;"	l	line:23
+ccls	C:\C32\include\fileio.h	49;"	m	line:49
+clockSPI::writeSPI(0xFF)	C:\C32\lib\SDMMC.c	61;"	d	line:61	file:
+cluster	C:\C32\include\fileio.h	48;"	m	line:48
+count	C:\C32\lib\fileio.c	837;"	l	line:837
+data	C:\C32\include\fileio.h	37;"	m	line:37
+data	C:\CDROM 1-8-08\C32\15 FileIO\ReadTest.c	16;"	v	line:16
+date	C:\C32\include\fileio.h	56;"	m	line:56
+disableSD::SDCS=1;clockSPI	C:\C32\lib\SDMMC.c	62;"	d	line:62	file:
+disk	C:\C32\lib\fileio.c	63;"	v	line:63
+e	C:\C32\lib\fileio.c	292;"	l	line:292
+e	C:\C32\lib\fileio.c	370;"	l	line:370
+e	C:\C32\lib\fileio.c	621;"	l	line:621
+e	C:\C32\lib\fileio.c	916;"	l	line:916
+eCount	C:\C32\lib\fileio.c	1040;"	l	line:1040
+eCount	C:\C32\lib\fileio.c	291;"	l	line:291
+eCount	C:\C32\lib\fileio.c	369;"	l	line:369
+eOffs	C:\C32\lib\fileio.c	1041;"	l	line:1041
+enableSD::SDCS=0	C:\C32\lib\SDMMC.c	63;"	d	line:63	file:
+entry	C:\C32\include\fileio.h	60;"	m	line:60
+fat	C:\C32\include\fileio.h	35;"	m	line:35
+fatcopy	C:\C32\include\fileio.h	41;"	m	line:41
+fatsize	C:\C32\include\fileio.h	40;"	m	line:40
+fcloseM	C:\C32\lib\fileio.c	914;"	f	line:914	signature:( MFILE *fp)
+findDIR	C:\C32\lib\fileio.c	287;"	f	line:287	signature:( MFILE *fp)
+firsts	C:\C32\lib\fileio.c	108;"	l	line:108
+fopenM	C:\C32\lib\fileio.c	618;"	f	line:618	signature:( const char *filename, const char *mode)
+fp	C:\C32\lib\fileio.c	1043;"	l	line:1043
+fp	C:\C32\lib\fileio.c	623;"	l	line:623
+fpage	C:\C32\include\fileio.h	59;"	m	line:59
+freadM	C:\C32\lib\fileio.c	830;"	f	line:830	signature:( void * dest, unsigned size, MFILE *fp)
+free	C:\C32\lib\fileio.c	91;"	f	line:91	signature:( void *p)
+fs	C:\CDROM 1-8-08\C32\15 FileIO\ReadTest.c	21;"	l	line:21
+fwriteM	C:\C32\lib\fileio.c	965;"	f	line:965	signature:( void *src, unsigned count, MFILE * fp)
+getCD	C:\C32\lib\SDMMC.c	263;"	f	line:263	signature:( void)
+getKEY	C:\C32\lib\Explore.c	80;"	f	line:80	signature:( void)
+getWP	C:\C32\lib\SDMMC.c	272;"	f	line:272	signature:( void)
+i	C:\C32\lib\Explore.c	82;"	l	line:82
+i	C:\C32\lib\SDMMC.c	117;"	l	line:117
+i	C:\C32\lib\SDMMC.c	158;"	l	line:158
+i	C:\C32\lib\SDMMC.c	208;"	l	line:208
+i	C:\C32\lib\SDMMC.c	70;"	l	line:70
+i	C:\C32\lib\fileio.c	109;"	l	line:109
+i	C:\C32\lib\fileio.c	293;"	l	line:293
+i	C:\C32\lib\fileio.c	466;"	l	line:466
+i	C:\C32\lib\fileio.c	545;"	l	line:545
+i	C:\C32\lib\fileio.c	621;"	l	line:621
+i	C:\CDROM 1-8-08\C32\15 FileIO\ReadTest.c	23;"	l	line:23
+initEX16	C:\C32\lib\Explore.c	13;"	f	line:13	signature:( void)
+initLCD	C:\C32\lib\LCDlib.c	20;"	f	line:20	signature:( void)
+initMedia	C:\C32\lib\SDMMC.c	112;"	f	line:112	signature:( void)
+initSD	C:\C32\lib\SDMMC.c	40;"	f	line:40	signature:( void)
+j	C:\C32\lib\Explore.c	82;"	l	line:82
+l	C:\C32\lib\fileio.c	262;"	l	line:262
+l	C:\C32\lib\fileio.c	279;"	l	line:279
+l	C:\C32\lib\fileio.c	428;"	l	line:428
+l	C:\C32\lib\fileio.c	468;"	l	line:468
+l	C:\C32\lib\fileio.c	590;"	l	line:590
+l	C:\C32\lib\fileio.c	604;"	l	line:604
+len	C:\C32\lib\fileio.c	838;"	l	line:838
+len	C:\C32\lib\fileio.c	971;"	l	line:971
+listTYPE	C:\C32\lib\fileio.c	1034;"	f	line:1034	signature:( char *list, int max, const char *ext )
+main	C:\CDROM 1-8-08\C32\15 FileIO\ReadTest.c	19;"	f	line:19	signature:( void)
+malloc	C:\C32\lib\fileio.c	67;"	f	line:67	signature:( unsigned size)
+maxcls	C:\C32\include\fileio.h	39;"	m	line:39
+maxroot	C:\C32\include\fileio.h	38;"	m	line:38
+mda	C:\C32\include\fileio.h	46;"	m	line:46
+mda	C:\C32\lib\fileio.c	294;"	l	line:294
+mda	C:\C32\lib\fileio.c	372;"	l	line:372
+mda	C:\C32\lib\fileio.c	504;"	l	line:504
+mda	C:\C32\lib\fileio.c	836;"	l	line:836
+mda	C:\C32\lib\fileio.c	970;"	l	line:970
+mode	C:\C32\include\fileio.h	58;"	m	line:58
+mount	C:\C32\lib\fileio.c	105;"	f	line:105	signature:( void)
+name	C:\C32\include\fileio.h	57;"	m	line:57
+newDIR	C:\C32\lib\fileio.c	365;"	f	line:365	signature:( MFILE *fp)
+newFAT	C:\C32\lib\fileio.c	538;"	f	line:538	signature:( MFILE * fp)
+nextFAT	C:\C32\lib\fileio.c	498;"	f	line:498	signature:( MFILE * fp, unsigned n)
+p	C:\C32\lib\fileio.c	427;"	l	line:427
+p	C:\C32\lib\fileio.c	467;"	l	line:467
+pos	C:\C32\include\fileio.h	51;"	m	line:51
+psize	C:\C32\lib\fileio.c	107;"	l	line:107
+putsLCD	C:\C32\lib\LCDlib.c	65;"	f	line:65	signature:( char *s)
+r	C:\C32\lib\Explore.c	82;"	l	line:82
+r	C:\C32\lib\SDMMC.c	117;"	l	line:117
+r	C:\C32\lib\SDMMC.c	158;"	l	line:158
+r	C:\C32\lib\SDMMC.c	208;"	l	line:208
+r	C:\C32\lib\SDMMC.c	70;"	l	line:70
+r	C:\C32\lib\fileio.c	1042;"	l	line:1042
+r	C:\C32\lib\fileio.c	621;"	l	line:621
+r	C:\C32\lib\fileio.c	916;"	l	line:916
+r	C:\CDROM 1-8-08\C32\15 FileIO\ReadTest.c	22;"	l	line:22
+readDATA	C:\C32\lib\fileio.c	602;"	f	line:602	signature:( MFILE *fp)
+readDIR	C:\C32\lib\fileio.c	258;"	f	line:258	signature:( MFILE *fp, unsigned e)
+readFAT	C:\C32\lib\fileio.c	421;"	f	line:421	signature:( MFILE *fp, unsigned ccls)
+readKEY	C:\C32\lib\Explore.c	63;"	f	line:63	signature:( void)
+readLCD	C:\C32\lib\LCDlib.c	49;"	f	line:49	signature:( int addr)
+readSECTOR	C:\C32\lib\SDMMC.c	153;"	f	line:153	signature:( LBA a, char *p)
+readSPI::writeSPI(0xFF)	C:\C32\lib\SDMMC.c	60;"	d	line:60	file:
+root	C:\C32\include\fileio.h	36;"	m	line:36
+s	C:\CDROM 1-8-08\C32\15 FileIO\ReadTest.c	24;"	l	line:24
+sec	C:\C32\include\fileio.h	50;"	m	line:50
+seek	C:\C32\include\fileio.h	53;"	m	line:53
+sendSDCmd	C:\C32\lib\SDMMC.c	66;"	f	line:66	signature:( unsigned char c, unsigned a)
+size	C:\C32\include\fileio.h	54;"	m	line:54
+size	C:\C32\lib\fileio.c	971;"	l	line:971
+sxc	C:\C32\include\fileio.h	42;"	m	line:42
+time	C:\C32\include\fileio.h	55;"	m	line:55
+top	C:\C32\include\fileio.h	52;"	m	line:52
+unmount	C:\C32\lib\fileio.c	250;"	f	line:250	signature:( void)
+writeDATA	C:\C32\lib\fileio.c	588;"	f	line:588	signature:( MFILE *fp)
+writeDIR	C:\C32\lib\fileio.c	275;"	f	line:275	signature:( MFILE *fp, unsigned entry)
+writeFAT	C:\C32\lib\fileio.c	460;"	f	line:460	signature:( MFILE *fp, unsigned cls, unsigned v)
+writeLCD	C:\C32\lib\LCDlib.c	57;"	f	line:57	signature:( int addr, char c)
+writeSECTOR	C:\C32\lib\SDMMC.c	203;"	f	line:203	signature:( LBA a, char *p)
+writeSPI	C:\C32\lib\SDMMC.c	53;"	f	line:53	signature:( unsigned char b)
+x	C:\C32\lib\fileio.c	1042;"	l	line:1042
