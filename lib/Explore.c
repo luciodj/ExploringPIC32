@@ -1,13 +1,9 @@
 /* 
 ** Explore.c
 **
-** v1.0 LDJ 8/2/07
-** V2.0 LDJ 10/22/07 rev B libraries
-** V2.1 LDJ 10/23/07 removed RAM wait states, enable pre-fetch
+** 
 */
 
-#include <p32xxxx.h>
-#include <plib.h>
 #include <explore.h>
 
 void initEX16( void)

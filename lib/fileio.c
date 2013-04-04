@@ -3,9 +3,6 @@
 ** 
 ** FAT16 support 
 **
-** 08/18/06 v1.0 LDJ ported to PIC24 for SD/MMC 
-** 09/17/07 v2.0 LDJ caching FAT sector - no chksum
-** 11/23/07 v2.1 LDJ PIC32 clean up
 */
 
 #define DBGNOT

@@ -3,8 +3,6 @@
 **
 ** FAT16 support 
 **
-** 01/16/03	v1.0 LDJ PIC18
-** 08/17/06 v2.0 LDJ PIC24 and SDMMC cards porting 
 */
 
 extern char FError; 	        // mailbox for error reporting

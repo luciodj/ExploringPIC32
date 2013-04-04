@@ -1,7 +1,8 @@
 /*
 ** CONU2.h
+**
 ** console I/O library for Explorer16 board
-** v 2.0 7/18/07 LDJ 
+** 
 */
 
 // I/O definitions for the Explorer16

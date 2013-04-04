@@ -1,8 +1,6 @@
 /*
 ** SDMMC.h SD card interface 
 ** 
-** 07/20/07 v1.4 LDJ
-** 11/22/07 v1.5 LDJ
 **
 */
 #define FAIL    FALSE

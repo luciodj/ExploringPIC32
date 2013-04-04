@@ -2,13 +2,8 @@
 **
 ** LCDlib.c
 **
-** 7/30/06 LDJ v1.0
-** 7/24/07 LDJ v1.1 porting to PIC32
-** 7/26/07 LDJ v.1.2 fixed PMMODE.MODE8 bit 
-** 11/12/07 LDJ v1.3 using libraries
 */
 
-#include <p32xxxx.h>
 #include <plib.h>
 #include <explore.h>
 

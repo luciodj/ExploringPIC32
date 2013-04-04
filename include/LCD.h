@@ -1,8 +1,6 @@
 /*
 ** LCD.h
 **
-** 7/30/06 LDJ v1.0
-** 7/24/07 LDJ v1.1 PIC32 
 */
 
 #define HLCD    16      // LCD width = 16 characters 

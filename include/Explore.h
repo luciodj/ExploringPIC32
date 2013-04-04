@@ -2,12 +2,14 @@
 ** Explore.h
 ** 
 ** definitions and prototypes for use with the Explorer16 board
-** 11/11/07 v1.0 LDJ first draft
 */
+
+#include <plib.h>
+
 #define FALSE   0
 #define TRUE    !FALSE
-#define FCY     72000000L
-#define FPB     36000000L
+#define FCY     80000000L
+#define FPB     40000000L
 
 #define POT     5       // 10k potentiometer on AN5 input
 #define TSENS   4       // TC1047 Temperature sensor on AN4

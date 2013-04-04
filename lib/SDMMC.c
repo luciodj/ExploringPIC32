@@ -1,9 +1,6 @@
 /*
 ** SDMMC.c SD card interface 
-** 
-** 7/20/06 v1.4 LDJ 
-** 7/14/07 v2.0 LDJ 
-** 
+**  
 */
 #include <p32xxxx.h>
 #include <explore.h>
