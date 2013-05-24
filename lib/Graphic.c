@@ -14,7 +14,6 @@
 **  11/20/07 v3.1 removed OC3 interrupt
 */
 
-#include <p32xxxx.h>
 #include <plib.h>
 #include <string.h>
 
@@ -68,7 +67,7 @@ short int VC[4] = { VSYNC_N,  POSTEQ_N,    VRES,  PREEQ_N};
 int zero[2]= {0x0, 0x0};
 
 
-void __ISR(_TIMER_3_VECTOR, ipl7) T3Interrupt( void)
+void __ISR(_TIMER_3_VECTOR, ipl7SRS) T3Interrupt( void)
 {
 //_RA2=1;
     // advance the state machine
@@ -144,14 +143,14 @@ void initVideo( void)
 #endif
 
     // 7. DMA 1 configuration   back porch extension
-    DmaChnOpen( 1, 1, DMA_OPEN_NORM);               
+    DmaChnOpen( 1, 1, DMA_OPEN_DEFAULT);
     DmaChnSetEventControl( 1, DMA_EV_START_IRQ_EN |
                           DMA_EV_START_IRQ(_SPI1_TX_IRQ));
     DmaChnSetTxfer( 1, (void*)zero, (void *)&SPI1BUF, 
                     8, 4, 4);
     
     // 8. DMA 0 configuration  image serialization
-    DmaChnOpen( 0, 0, DMA_OPEN_NORM);               
+    DmaChnOpen( 0, 0, DMA_OPEN_DEFAULT);
     DmaChnSetEventControl( 0, DMA_EV_START_IRQ_EN |
                             DMA_EV_START_IRQ(_SPI1_TX_IRQ));
     DmaChnSetTxfer( 0, (void*)VPtr, (void *)&SPI1BUF,
