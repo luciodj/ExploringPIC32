@@ -2,9 +2,9 @@
 **   WavePlayer.c
 **
 */
-// configuration bit settings, Fcy=80MHz, Fpb=40MHz
+// configuration bit settings, Fcy=72MHz, Fpb=36MHz
 #pragma config POSCMOD=XT, FNOSC=PRIPLL 
-#pragma config FPLLIDIV=DIV_2, FPLLMUL=MUL_20, FPLLODIV=DIV_1
+#pragma config FPLLIDIV=DIV_2, FPLLMUL=MUL_18, FPLLODIV=DIV_1
 #pragma config FPBDIV=DIV_2, FWDTEN=OFF, CP=OFF, BWP=OFF
 
 

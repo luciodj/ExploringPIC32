@@ -44,12 +44,18 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 # Distribution Directory
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
+# Source Files Quoted if spaced
+SOURCEFILES_QUOTED_IF_SPACED=../lib/Explore.c WavePlayer.c ../lib/LCDlib.c ../lib/fileio.c ../lib/SDMMC.c ../lib/AudioPWM.c
+
 # Object Files Quoted if spaced
 OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1360930230/Explore.o ${OBJECTDIR}/WavePlayer.o ${OBJECTDIR}/_ext/1360930230/LCDlib.o ${OBJECTDIR}/_ext/1360930230/fileio.o ${OBJECTDIR}/_ext/1360930230/SDMMC.o ${OBJECTDIR}/_ext/1360930230/AudioPWM.o
 POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1360930230/Explore.o.d ${OBJECTDIR}/WavePlayer.o.d ${OBJECTDIR}/_ext/1360930230/LCDlib.o.d ${OBJECTDIR}/_ext/1360930230/fileio.o.d ${OBJECTDIR}/_ext/1360930230/SDMMC.o.d ${OBJECTDIR}/_ext/1360930230/AudioPWM.o.d
 
 # Object Files
 OBJECTFILES=${OBJECTDIR}/_ext/1360930230/Explore.o ${OBJECTDIR}/WavePlayer.o ${OBJECTDIR}/_ext/1360930230/LCDlib.o ${OBJECTDIR}/_ext/1360930230/fileio.o ${OBJECTDIR}/_ext/1360930230/SDMMC.o ${OBJECTDIR}/_ext/1360930230/AudioPWM.o
+
+# Source Files
+SOURCEFILES=../lib/Explore.c WavePlayer.c ../lib/LCDlib.c ../lib/fileio.c ../lib/SDMMC.c ../lib/AudioPWM.c
 
 
 CFLAGS=
