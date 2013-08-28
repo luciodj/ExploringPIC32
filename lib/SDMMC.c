@@ -140,7 +140,7 @@ int initMedia( void)
 
     // 6. increase speed 
     SPI2CON = 0;                // disable the SPI2 module
-    SPI2BRG = 0;                // Fpb/(2*(0+1))= 36/2 = 18MHz
+    SPI2BRG = 0;                // Fpb/(2*(0+1))= 40/2 = 20MHz
     SPI2CON = 0x8120;           // re-enable the SPI2 module
     
     return 0;           

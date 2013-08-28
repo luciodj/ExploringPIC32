@@ -17,6 +17,7 @@ typedef struct {
     char fix;               // sign fix 0x00 8-bit, 0x80 16-bit
     char skip;              // advance pointer to next sample
     char size;              // sample size (8 or 16-bit)
+    char stride;            // number of bytes per period (stereo * size)
 } AudioCfg;
 
 // chunk IDs
@@ -26,27 +27,22 @@ typedef struct {
 #define  FMT_DWORD   0x20746d66UL     
 #define  WAV_DWORD   0x00564157UL
 
-typedef struct {
-    // data chunk
-    unsigned int dlength;       // actual data size
-    char    data[4];            // "data"
+typedef struct {                // define a basic "chunk"
+    long ckID;
+    long ckSize;
+    long ckType;
+} chunk;
 
-    // format chunk 
-    unsigned short  bitpsample; // bit per sample
-    unsigned short  bpsample;   // bytes per sample
-                                //    (4=16bit stereo)
-    unsigned int    bps;        // bytes per second
-    unsigned int    srate;      // sample rate in Hz
-    unsigned short  channels;   // # of channels
-                                //  (1= mono,2= stereo)
-    unsigned short  subtype;    // always 01
-    unsigned int    flength;    // size of this block (16)
-    char    fmt_[4];            // "fmt_"
-    
-    char    type[4];            // file type name "WAVE"
-    unsigned int    tlength;    // size of encapsulated block
-    char    riff[4];            // envelope "RIFF"
-} WAVE; 
+typedef struct {                // define the WAV format chunk
+    unsigned short subtype;     // compression code
+    unsigned short channels;    // # of channels (1=mono, 2=stereo)
+    unsigned long srate;        // sample rate in Hz
+    unsigned long bps;          // bytes per second
+    unsigned short align;       // block alignment
+    unsigned short bitpsample;  // bit per sample
+    // unsigned short extra     // extra format bytes
+} WAVE_fmt;
+
 
 // global definitions
 char    ABuffer[ 2][ B_SIZE];   // double data buffer
@@ -79,16 +75,16 @@ void initAudio( void)
 } // initAudio
 
 
-void startAudio( int bitrate, int position, int count)
+void startAudio( int bitrate)
 { // begins the audio playback
     
     // 1. init pointers  and flags
     CurBuf = 0;                 // buffer 0 active first
-    BPtr = ABuffer[ CurBuf] + position;
+    BPtr = &ABuffer[ CurBuf][ ACfg.size-1];
     AEmptyFlag = FALSE;
 
     // 2. number of actual samples to be played
-    BCount = count/ACfg.skip; 
+    BCount = B_SIZE/ACfg.skip;
 
     // 3. set the period for the given bitrate
     PR2 = FPB / bitrate-1;    
@@ -107,34 +103,41 @@ void haltAudio( void)
 
 void __ISR( _TIMER_2_VECTOR, ipl4 ) T2Interrupt( void)
 {
-    // 0. allow interrupt nesting
-    asm( "ei");
-    
-    // 1. load the new samples for the next cycle
-    OC1RS = 30+(*BPtr ^ ACfg.fix); 
-    if ( ACfg.stereo)
-        OC2RS = 30 + (*(BPtr + ACfg.size) ^ ACfg.fix);
-    else    // mono
-        OC2RS = OC1RS;
+    static int sk = 1;
 
-    // 2. skip samples to reduce the bitrate
-    BPtr += ACfg.skip;
-
-    // 3. check if buffer emptied
-    if ( --BCount == 0)
+    // 1. skip to increase the bitrate( avoid PWM noise)
+    if ( --sk == 0)
     {
-        // 3.1 swap buffers
-        CurBuf = 1- CurBuf;
-        
-        // 3.2. place pointer on first sample
-        BPtr = &ABuffer[ CurBuf][ACfg.size-1];
-        
-        // 3.3 restart counter
-        BCount = B_SIZE/ACfg.skip;
+        // reload the skip
+        sk = ACfg.skip;
 
-        // 3.4 flag a new buffer needs to be filled
-        AEmptyFlag = 1;
-    }
+        // 2. load the new samples for the next cycle
+        OC1RS = 30+(*BPtr ^ ACfg.fix);
+        if ( ACfg.stereo == 2)
+            OC2RS = 30 + (*(BPtr + ACfg.size) ^ ACfg.fix);
+        else    // mono
+            OC2RS = OC1RS;
+
+        // 2. advance pointer
+        BPtr += ACfg.stride;
+
+        // 3. check if buffer emptied
+        BCount -= ACfg.stride;
+        if ( BCount <= 0)
+        {
+            // 3.1 swap buffers
+            CurBuf = 1- CurBuf;
+
+            // 3.2. place pointer on first sample
+            BPtr = &ABuffer[ CurBuf][ACfg.size-1];
+
+            // 3.3 restart counter
+            BCount = B_SIZE/ACfg.skip;
+
+            // 3.4 flag a new buffer needs to be filled
+            AEmptyFlag = 1;
+        }
+    } // if skip
 
     // 4. clear interrupt flag and exit
     mT2ClearIntFlag();
@@ -154,143 +157,143 @@ void __ISR( _TIMER_2_VECTOR, ipl4 ) T2Interrupt( void)
 */
 int playWAV( char *name)
 {
-    WAVE    wav;
-    MFILE    *f;
-    unsigned int lc, r;
-    int wi, pos, rate, period, last;
+    chunk       ck;
+    WAVE_fmt    wav;
+    MFILE       *fp;
+    unsigned long lc, r;
+
+    // audio codec parameters
+    int period, rate, last;
     char s[16];
         
     // 1. open the file           
-    if ( (f = fopenM( name, "r")) == NULL)
+    if ( (fp = fopenM( name, "r")) == NULL)
     {   // failed to open 
         return FALSE;
     }
     
-    // 2. verify it is a RIFF formatted file
-    if ( ReadL( f->buffer, 0) != RIFF_DWORD)
-    {
-        fcloseM( f);
-        return FALSE;
-    }
+    // 2. verify it is a RIFF-WAVE formatted file
+    freadM( (void*)&ck, sizeof( chunk), fp);
+    if ( (ck.ckID != RIFF_DWORD) || ( ck.ckType != WAVE_DWORD))
+        goto Exit;
+
     
-    // 3. look for the WAVE chunk signature 
-    if ( (ReadL( f->buffer, 8)) != WAVE_DWORD)
-    {
-        fcloseM( f);
-        return FALSE;
-    }
+    // 3. look for the chunk containing the wave format data
+    freadM( (void*)&ck, 8, fp);
+    if ( ck.ckID != FMT_DWORD)
+        goto Exit;
     
-    // 4. look for the chunk containing the wave format data
-    if ( ReadL( f->buffer, 12) != FMT_DWORD)
-    {
-        fcloseM( f);
-        return FALSE;
-    }
-    
-    wav.channels    = ReadW( f->buffer, 22);
-    wav.bitpsample  = ReadW( f->buffer, 34);
-    wav.srate       = ReadL( f->buffer, 24);
-    wav.bps         = ReadL( f->buffer, 28);
-    wav.bpsample    = ReadW( f->buffer, 32);
-    
-    // 5. search for the data chunk
-    wi = 20 + ReadW( f->buffer, 16);  
-    while ( wi < 512)
-    {
-        if (ReadL( f->buffer, wi) == DATA_DWORD)
+    // 4. get the WAVE_fmt data
+    freadM( (void*) &wav, sizeof( WAVE_fmt), fp);
+
+    // 5. skip extra format bytes
+    fseekM( fp, ck.ckSize - sizeof( WAVE_fmt));
+
+    // 6. search for the data chunk
+    while( 1)
+    {   // read next chunk
+        if ( freadM( (void*)&ck, 8, fp) != 8)    // failed, eof
+            goto Exit;
+
+        // if not a data chunk, skip
+        if ( ck.ckID == DATA_DWORD)
             break;
-        wi += 8 + ReadW( f->buffer, wi+4);
-    }
-    if ( wi >= 512) // could not find in current sector
-    {
-        fcloseM( f);
-        return FALSE;
-    }   
 
-    // 6. find the data size (actual wave content)
-    wav.dlength = ReadL( f->buffer, wi+4);
+        fseekM( fp, ck.ckSize);
+    }
     
-    // 7. if sample rate too high, skip
-    rate = wav.bps / wav.bpsample; // rate = samples per second
-    ACfg.skip = wav.bpsample;      // skip to reduce bandwith 
-    while ( rate > 48000)
+    // 7. find the data size (actual wave content)
+    lc = ck.ckSize;
+    if (lc < B_SIZE*2)              // accept only files longer than 2* BSIZE
+        goto    Exit;
+    
+    // 8. compute the period and adjust the bit rate to reduce noise
+    rate = wav.srate;               // rate = samples per second
+    ACfg.skip = 1;                  // skip to reduce bandwith
+    while ( rate < 22050)
     {
-        rate >>= 1;                // divide sample rate by two
-        ACfg.skip <<= 1;           // multiply skip by two
+        rate <<= 1;                // multiply sample rate by two
+        ACfg.skip >>= 1;           // multiply skip by two
     }
 
-    // 8. check if sample rate too low
+    // 9. check if sample rate is compatible with the Timer prescaler
     period = (FPB/rate)-1;
     if ( period > ( 65536L))       // max timer period 16 bit
-    {   // period too long
-        fcloseM( f);
-        return FALSE;
-    }
+        goto Exit;
 
-    // 9. init the Audio state machine
+    // 10. init the Audio state machine
     CurBuf = 0;
-    pos   = wi+8;                   // data begin 
-    ACfg.stereo = (wav.channels == 2);
+    ACfg.stereo = wav.channels;
     ACfg.size  = 1;                 // #bytes per channel
     ACfg.fix   = 0;                 // sign fix / 16 bit file
     if ( wav.bitpsample == 16)
     {                               // if 16-bit 
-        pos++;                      // add 1 to get the MSB
         ACfg.size = 2;              // two bytes per sample
         ACfg.fix  = 0x80;           // fix the sign
     }
-    
-    // 10 # of bytes composing the wav data chunk
-    lc = wav.dlength;
-    
+    ACfg.stride = ACfg.size * ACfg.stereo;
+
     // 11. pre-load both buffer
-    r = freadM( ABuffer[0], B_SIZE*2, f);
+    r = freadM( ABuffer[0], B_SIZE*2, fp);
     lc -= r;                    
     AEmptyFlag = FALSE;
         
     // 12. configure Player state machine and start
     initAudio();
-    startAudio( rate, pos, r-pos);
+    startAudio( rate);
         
     // 13. keep feeding the buffers in the playing loop
     //     as long as entire buffers can be filled
-    while (lc > 0)            
+    while (lc >= B_SIZE)
     {   // 13.1 check user input to stop playback
-        if ( readKEY())             // if any button pressed
+        if ( readKEY())                 // if any button pressed
         {                           
-            lc = 0;                 // playback completed
+            lc = 0;                     // playback completed
             break;
         }
         
         // 13.2 check if a buffer needs a refill
         if ( AEmptyFlag)
         {
-            r = freadM( ABuffer[1-CurBuf], B_SIZE, f);
-            lc-= r;                 // decrement byte count
-            AEmptyFlag = FALSE;     // refilled
+            r = freadM( ABuffer[1-CurBuf], B_SIZE, fp);
+            if ( r < B_SIZE)
+                goto Exit;              // eof?
+
+            AEmptyFlag = FALSE;         // refilled
+            lc -= r;                    // decrement byte count
 
             // <<put here additional tasks>>
             putsLCD("\n");          //  on the second line
-            sprintf( s, "%dKB", (wav.dlength-lc)/1024);
+            sprintf( s, "-%dKB ", lc/1024);
             putsLCD( s);            // byte count
         }
     } // while wav data available
 
-    // 14. pad the rest of the buffer 
-    last = ABuffer[1-CurBuf][r-1];
-    while( r<B_SIZE) 
-        ABuffer[1-CurBuf][r++] = last;
-    AEmptyFlag = FALSE;         // refilled
+    // 14. flash the buffer with data tail
+    if ( lc>0)
+    {   // load the last sector
+        r = freadM( ABuffer[1-CurBuf], lc, fp);
 
-    // 15.finish the last buffer
-    AEmptyFlag = FALSE;
+        last = ABuffer[1-CurBuf][r-1];
+        while( ( r<B_SIZE) && ( last>0))
+            ABuffer[1-CurBuf][r++] = last;
+        AEmptyFlag = FALSE;         // refilled
+
+        // wait for current buffer to be emptied
+        AEmptyFlag = FALSE;
+        while (!AEmptyFlag);
+    }
+
+    // 15. finish the last buffer
+    AEmptyFlag = 0;
     while (!AEmptyFlag);
-    
+
+Exit:
     // 16. stop playback 
     haltAudio();
 
     // 17. close the file 
-    fcloseM( f);
+    fcloseM( fp);
 
     // 18. return with success
     return TRUE;

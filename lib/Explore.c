@@ -14,8 +14,8 @@ void initEX16( void)
     mJTAGPortEnable( 0);
 #endif
     
-    // 2. Sysytem config performance
-    SYSTEMConfigPerformance( FCY);
+    // 2. Sysytem config for performance (without modifying PBDIV)
+    SYSTEMConfig( FCY, SYS_CFG_WAIT_STATES | SYS_CFG_PCACHE);
    
     // 7. allow vectored interrupts
     INTEnableSystemMultiVectoredInt();   // Interrupt vectoring

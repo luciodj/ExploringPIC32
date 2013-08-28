@@ -95,6 +95,7 @@ void    unmount( void);
 
 MFILE *  fopenM  ( const char *name, const char *mode);
 unsigned freadM  ( void * dest, unsigned count, MFILE *);
+unsigned fseekM( MFILE* fp, unsigned count);
 unsigned fwriteM ( void * src, unsigned count, MFILE *);
 unsigned fcloseM ( MFILE *fp);
 

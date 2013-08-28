@@ -1023,6 +1023,29 @@ unsigned fwriteM(  void *src, unsigned count, MFILE * fp)
 } // fwriteM
 
 
+//-------------------------------------------------------------
+// fseekM
+//
+// Advances the file pointer by bycount positions from CUR_POS
+// simple implementation of a seek function
+// returns 0 if successful
+unsigned fseekM( MFILE* fp, unsigned count)
+{
+    char buffer[ 16];
+    unsigned d, r;
+
+    while( count)
+    {
+        d = ( count >= 16) ? 16 : count;
+        r = freadM( buffer, d, fp);
+        count -= r;
+        if ( r != d)
+            break;          // reached end of file or error
+    } // while
+
+    return count;
+} // fseekM
+
 
 //-------------------------------------------------------------
 // Scans the current disk and compiles a list of files 
