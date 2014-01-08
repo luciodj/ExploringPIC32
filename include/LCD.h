@@ -3,6 +3,9 @@
 **
 */
 
+#ifndef _LCDlib_
+#define _LCDlib_
+
 #define HLCD    16      // LCD width = 16 characters 
 #define VLCD    2       // LCD height = 2 rows
 
@@ -28,3 +31,4 @@ char readLCD( int addr);
 
 void putsLCD( char *s);
 
+#endif

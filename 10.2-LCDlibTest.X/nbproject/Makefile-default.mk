@@ -44,12 +44,18 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 # Distribution Directory
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
+# Source Files Quoted if spaced
+SOURCEFILES_QUOTED_IF_SPACED=../lib/LCDlib.c ../lib/Explore.c LCDlibtest.c
+
 # Object Files Quoted if spaced
 OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1360930230/LCDlib.o ${OBJECTDIR}/_ext/1360930230/Explore.o ${OBJECTDIR}/LCDlibtest.o
 POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1360930230/LCDlib.o.d ${OBJECTDIR}/_ext/1360930230/Explore.o.d ${OBJECTDIR}/LCDlibtest.o.d
 
 # Object Files
 OBJECTFILES=${OBJECTDIR}/_ext/1360930230/LCDlib.o ${OBJECTDIR}/_ext/1360930230/Explore.o ${OBJECTDIR}/LCDlibtest.o
+
+# Source Files
+SOURCEFILES=../lib/LCDlib.c ../lib/Explore.c LCDlibtest.c
 
 
 CFLAGS=
@@ -88,32 +94,38 @@ ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 ${OBJECTDIR}/_ext/1360930230/LCDlib.o: ../lib/LCDlib.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1360930230 
 	@${RM} ${OBJECTDIR}/_ext/1360930230/LCDlib.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360930230/LCDlib.o 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1360930230/LCDlib.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../include" -MMD -MF "${OBJECTDIR}/_ext/1360930230/LCDlib.o.d" -o ${OBJECTDIR}/_ext/1360930230/LCDlib.o ../lib/LCDlib.c   
 	
 ${OBJECTDIR}/_ext/1360930230/Explore.o: ../lib/Explore.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1360930230 
 	@${RM} ${OBJECTDIR}/_ext/1360930230/Explore.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360930230/Explore.o 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1360930230/Explore.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../include" -MMD -MF "${OBJECTDIR}/_ext/1360930230/Explore.o.d" -o ${OBJECTDIR}/_ext/1360930230/Explore.o ../lib/Explore.c   
 	
 ${OBJECTDIR}/LCDlibtest.o: LCDlibtest.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
 	@${RM} ${OBJECTDIR}/LCDlibtest.o.d 
+	@${RM} ${OBJECTDIR}/LCDlibtest.o 
 	@${FIXDEPS} "${OBJECTDIR}/LCDlibtest.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../include" -MMD -MF "${OBJECTDIR}/LCDlibtest.o.d" -o ${OBJECTDIR}/LCDlibtest.o LCDlibtest.c   
 	
 else
 ${OBJECTDIR}/_ext/1360930230/LCDlib.o: ../lib/LCDlib.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1360930230 
 	@${RM} ${OBJECTDIR}/_ext/1360930230/LCDlib.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360930230/LCDlib.o 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1360930230/LCDlib.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../include" -MMD -MF "${OBJECTDIR}/_ext/1360930230/LCDlib.o.d" -o ${OBJECTDIR}/_ext/1360930230/LCDlib.o ../lib/LCDlib.c   
 	
 ${OBJECTDIR}/_ext/1360930230/Explore.o: ../lib/Explore.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1360930230 
 	@${RM} ${OBJECTDIR}/_ext/1360930230/Explore.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1360930230/Explore.o 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1360930230/Explore.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../include" -MMD -MF "${OBJECTDIR}/_ext/1360930230/Explore.o.d" -o ${OBJECTDIR}/_ext/1360930230/Explore.o ../lib/Explore.c   
 	
 ${OBJECTDIR}/LCDlibtest.o: LCDlibtest.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
 	@${RM} ${OBJECTDIR}/LCDlibtest.o.d 
+	@${RM} ${OBJECTDIR}/LCDlibtest.o 
 	@${FIXDEPS} "${OBJECTDIR}/LCDlibtest.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION) -I"../include" -MMD -MF "${OBJECTDIR}/LCDlibtest.o.d" -o ${OBJECTDIR}/LCDlibtest.o LCDlibtest.c   
 	
 endif
@@ -129,12 +141,12 @@ endif
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 dist/${CND_CONF}/${IMAGE_TYPE}/10.2-LCDlibTest.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE)  -mdebugger -D__MPLAB_DEBUGGER_ICD3=1 -mprocessor=$(MP_PROCESSOR_OPTION)  -o dist/${CND_CONF}/${IMAGE_TYPE}/10.2-LCDlibTest.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}          -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_ICD3=1
+	${MP_CC} $(MP_EXTRA_LD_PRE)  -mdebugger -D__MPLAB_DEBUGGER_ICD3=1 -mprocessor=$(MP_PROCESSOR_OPTION)  -o dist/${CND_CONF}/${IMAGE_TYPE}/10.2-LCDlibTest.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}          -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_ICD3=1,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map"
 	
 else
 dist/${CND_CONF}/${IMAGE_TYPE}/10.2-LCDlibTest.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE)  -mprocessor=$(MP_PROCESSOR_OPTION)  -o dist/${CND_CONF}/${IMAGE_TYPE}/10.2-LCDlibTest.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}          -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION)
+	${MP_CC} $(MP_EXTRA_LD_PRE)  -mprocessor=$(MP_PROCESSOR_OPTION)  -o dist/${CND_CONF}/${IMAGE_TYPE}/10.2-LCDlibTest.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}          -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map"
 	${MP_CC_DIR}/xc32-bin2hex dist/${CND_CONF}/${IMAGE_TYPE}/10.2-LCDlibTest.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} 
 endif
 

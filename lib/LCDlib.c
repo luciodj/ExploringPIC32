@@ -78,7 +78,7 @@ void putsLCD( char *s)
                 putLCD( ' '); 
                 c++;
             }
-            if ( c > 15)   // if necessary move to second line
+            if (( c > 15)&&( c < 0x40))   // if necessary move to second line
                 setLCDC( 0x40);
             break;                
         default:            // print character
